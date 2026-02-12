@@ -8,8 +8,8 @@
 </head>
 <body>
 
-    <!-- Background Music -->
-    <audio id="bg-music" src="music/Tanging Ikaw.mp3" autoplay loop></audio>
+    <!-- Background Music (muted initially for autoplay) -->
+    <audio id="bg-music" src="music/Tanging Ikaw.mp3" loop autoplay muted></audio>
 
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
@@ -82,7 +82,7 @@
         }
         setInterval(createFloatingHeart, 400);
 
-        // Explosion hearts
+        // Explosion hearts + navigate to Letter
         function explodeHearts() {
             const numberOfHearts = 40;
             for (let i = 0; i < numberOfHearts; i++) {
@@ -99,12 +99,22 @@
                 setTimeout(() => heart.remove(), 1000);
             }
             document.body.classList.add("zoom-out");
+
+            // After zoom animation, navigate to Letter section
+            setTimeout(() => {
+                document.body.classList.remove("zoom-out"); // reset zoom
+                showSection('letter');
+            }, 800); // match zoom-out duration
         }
 
-        // Music autoplay
+        // Background music autoplay without delay
         const bgMusic = document.getElementById("bg-music");
         window.addEventListener('load', () => {
-            bgMusic.play().catch(() => console.log("Autoplay blocked"));
+            bgMusic.muted = false; // unmute after load
+            bgMusic.play().catch(() => {
+                // If autoplay blocked, start on first click anywhere
+                document.body.addEventListener('click', () => bgMusic.play());
+            });
         });
     </script>
 
