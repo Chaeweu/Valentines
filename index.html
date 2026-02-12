@@ -14,48 +14,32 @@
     <div class="container">
         <h1>Happy Valentine's Day ❤️</h1>
         <p>You make my world brighter every single day.</p>
-        <button onclick="explodeHearts()">Click for a Surprise 💌</button>
+        <button onclick="showMessage()">Click for a Surprise 💌</button>
         <div class="hidden-message" id="message">
             I love you more than words can express 💖
         </div>
     </div>
 
     <script>
-function explodeHearts() {
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
 
-    const numberOfHearts = 40;
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "0px";
+            heart.style.fontSize = Math.random() * 20 + 15 + "px";
+            document.body.appendChild(heart);
 
-    for (let i = 0; i < numberOfHearts; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("explode-heart");
-        heart.innerHTML = "❤️";
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
 
-        // Start at center
-        heart.style.left = "50%";
-        heart.style.top = "50%";
-
-        // Random explosion direction
-        const x = (Math.random() - 0.5) * 600 + "px";
-        const y = (Math.random() - 0.5) * 600 + "px";
-
-        heart.style.setProperty("--x", x);
-        heart.style.setProperty("--y", y);
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 1000);
-    }
-
-    // Optional zoom effect
-    document.body.classList.add("zoom-out");
-
-    // Redirect after animation
-    setTimeout(() => {
-        window.location.href = "gallery.html";
-    }, 900);
-}
+        setInterval(createHeart, 300);
     </script>
 
 </body>
