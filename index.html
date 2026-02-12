@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="bg-music" src="music/Tanging Ikaw.mp3" autoplay loop></audio>
 
     <div class="container">
         <h1>Happy Valentine's Day ❤️</h1>
@@ -20,6 +22,15 @@
     </div>
 
     <script>
+                // Play music on load (in case autoplay is blocked by browser)
+        const bgMusic = document.getElementById("bg-music");
+        window.addEventListener('load', () => {
+            bgMusic.play().catch(() => {
+                // Some browsers block autoplay without interaction
+                console.log("Autoplay blocked. Click anywhere to start music.");
+            });
+        });
+
         // ❤️ Floating Background Hearts
         function createFloatingHeart() {
             const heart = document.createElement("div");
@@ -75,5 +86,10 @@
         }
     </script>
 
+<!-- Floating Music Controls -->
+<div class="music-controls">
+    <button id="play-pause">⏸</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+</div>
 </body>
 </html>

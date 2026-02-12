@@ -115,8 +115,7 @@ button:hover {
 }
 
 /* Gallery and Music CSS */
-.gallery-container,
-.music-container {
+.gallery-container {
     text-align: center;
     padding: 40px;
 }
@@ -154,13 +153,40 @@ button:hover {
     background: #ffe6f0;
 }
 
-.player button {
-    margin: 10px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
+
+/* 🎵 Floating Music Controls */
+.music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.music-controls button {
     background: white;
     color: #ff4e8a;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 1rem;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.music-controls button:hover {
+    transform: scale(1.1);
+    background-color: #ffe6f0;
+}
+
+.music-controls input[type="range"] {
+    cursor: pointer;
 }
