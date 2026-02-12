@@ -76,6 +76,35 @@ button:hover {
     color: #fff;
 }
 
+/* 💥 Hearts Explosion */
+.explode-heart {
+    position: fixed;
+    font-size: 20px;
+    pointer-events: none;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Optional zoom effect */
+.zoom-out {
+    animation: zoomScreen 0.8s ease forwards;
+}
+
+@keyframes zoomScreen {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
 /* Gallery and Music CSS */
 .gallery-container,
 .music-container {
