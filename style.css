@@ -5,20 +5,30 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Body */
 body {
     background: linear-gradient(135deg, #ff4e8a, #ff9ecf);
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     color: white;
     text-align: center;
     position: relative;
 }
 
-/* Container */
+.section {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.section.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     background: rgba(255, 255, 255, 0.12);
     padding: 40px;
@@ -28,12 +38,6 @@ body {
     max-width: 500px;
     position: relative;
     z-index: 2;
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
@@ -47,7 +51,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Button */
 button {
     background-color: white;
     color: #ff4e8a;
@@ -58,22 +61,18 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 button:hover {
     background-color: #ffe6f0;
     transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Floating Hearts */
 .heart {
     position: absolute;
     color: white;
     font-size: 20px;
     animation: float 5s linear infinite;
-    opacity: 0.8;
     z-index: 0;
 }
 
@@ -82,16 +81,13 @@ button:hover {
     100% { transform: translateY(-900px) scale(1.6) rotate(360deg); opacity: 0; }
 }
 
-/* Hidden message */
 .hidden-message {
     margin-top: 20px;
     display: none;
     font-size: 1.3rem;
     color: #fff;
-    animation: fadeIn 1s ease-in-out;
 }
 
-/* Explosion hearts */
 .explode-heart {
     position: fixed;
     font-size: 22px;
@@ -104,7 +100,6 @@ button:hover {
     100% { transform: translate(var(--x), var(--y)) scale(1.8); opacity: 0; }
 }
 
-/* Zoom effect */
 .zoom-out {
     animation: zoomScreen 0.8s ease forwards;
 }
@@ -114,7 +109,38 @@ button:hover {
     to { transform: scale(1.1); }
 }
 
-/* Gallery and Music CSS */
+/* Letter Card */
+.letter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.letter-card {
+    background: #fffafc;
+    color: #444;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.letter-card h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff4e8a;
+    margin-bottom: 10px;
+}
+
+.letter-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Gallery */
 .gallery-container {
     text-align: center;
     padding: 40px;
@@ -124,7 +150,7 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    margin: 30px 0;
+    margin-top: 30px;
 }
 
 .gallery img {
@@ -137,56 +163,32 @@ button:hover {
     transform: scale(1.05);
 }
 
-.back-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: white;
-    color: #ff4e8a;
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.back-btn:hover {
-    background: #ffe6f0;
-}
-
-
-/* 🎵 Floating Music Controls */
-.music-controls {
+/* Navigation Buttons */
+.nav-buttons {
     position: fixed;
     top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 10px 15px;
-    border-radius: 25px;
-    backdrop-filter: blur(8px);
+    left: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     z-index: 10;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.music-controls button {
+.nav-buttons button {
     background: white;
     color: #ff4e8a;
     border: none;
-    padding: 8px 12px;
-    border-radius: 50%;
+    padding: 8px 15px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.music-controls button:hover {
-    transform: scale(1.1);
-    background-color: #ffe6f0;
+.nav-buttons button:hover {
+    background: #ffe6f0;
 }
 
-.music-controls input[type="range"] {
-    cursor: pointer;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
