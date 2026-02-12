@@ -61,17 +61,15 @@
     </section>
 
     <script>
-        // Sections for navigation
         const sections = document.querySelectorAll('.section');
 
         // Show only one section
         function showSection(id) {
             sections.forEach(sec => sec.classList.remove('active'));
-            const selected = document.getElementById(id);
-            selected.classList.add('active');
+            document.getElementById(id).classList.add('active');
         }
 
-        // Floating Background Hearts
+        // Floating background hearts
         function createFloatingHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
@@ -84,7 +82,7 @@
         }
         setInterval(createFloatingHeart, 400);
 
-        // Explosion Hearts
+        // Explosion hearts
         function explodeHearts() {
             const numberOfHearts = 40;
             for (let i = 0; i < numberOfHearts; i++) {
@@ -106,9 +104,7 @@
         // Music autoplay
         const bgMusic = document.getElementById("bg-music");
         window.addEventListener('load', () => {
-            bgMusic.play().catch(() => {
-                console.log("Autoplay blocked. Click anywhere to start music.");
-            });
+            bgMusic.play().catch(() => console.log("Autoplay blocked"));
         });
     </script>
 
