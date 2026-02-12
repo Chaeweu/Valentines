@@ -22,13 +22,27 @@
     </div>
 
     <script>
-                // Play music on load (in case autoplay is blocked by browser)
         const bgMusic = document.getElementById("bg-music");
-        window.addEventListener('load', () => {
-            bgMusic.play().catch(() => {
-                // Some browsers block autoplay without interaction
-                console.log("Autoplay blocked. Click anywhere to start music.");
-            });
+        const playPauseBtn = document.getElementById("play-pause");
+        const volumeSlider = document.getElementById("volume-slider");
+
+        // Set initial volume
+        bgMusic.volume = 0.5;
+
+        // Play/Pause toggle
+        playPauseBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                playPauseBtn.innerHTML = '⏸';
+            } else {
+                bgMusic.pause();
+                playPauseBtn.innerHTML = '▶';
+            }
+        });
+
+        // Volume control
+        volumeSlider.addEventListener('input', (e) => {
+            bgMusic.volume = e.target.value;
         });
 
         // ❤️ Floating Background Hearts
