@@ -75,3 +75,54 @@ button:hover {
     font-size: 1.3rem;
     color: #fff;
 }
+
+/* Gallery and Music CSS */
+.gallery-container,
+.music-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: #ff4e8a;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #ffe6f0;
+}
+
+.player button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: white;
+    color: #ff4e8a;
+    cursor: pointer;
+    font-weight: bold;
+}
