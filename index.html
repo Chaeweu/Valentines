@@ -14,32 +14,17 @@
     <div class="container">
         <h1>Happy Valentine's Day ❤️</h1>
         <p>You make my world brighter every single day.</p>
-        <button onclick="showMessage()">Click for a Surprise 💌</button>
+        <button onclick="goToGallery()">Click for a Surprise 💌</button>
+
         <div class="hidden-message" id="message">
             I love you more than words can express 💖
         </div>
     </div>
 
     <script>
-        function showMessage() {
-            document.getElementById("message").style.display = "block";
-        }
-
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.bottom = "0px";
-            heart.style.fontSize = Math.random() * 20 + 15 + "px";
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        setInterval(createHeart, 300);
+           function goToGallery() {
+        window.location.href = "gallery.html";
+    }
     </script>
 
 </body>
