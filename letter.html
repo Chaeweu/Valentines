@@ -4,49 +4,26 @@
     <meta charset="UTF-8">
     <title>My Love Letter 💖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Romantic Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="letter.css">
 </head>
 <body>
 
-    <div class="letter-wrapper">
-        <div class="letter-card">
+    <!-- 🌸 Petals -->
+    <div id="petals"></div>
+
+    <!-- ✉ Envelope -->
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="letter">
             <h1>To My Love 💕</h1>
-
-            <p class="date">February 14, 2026</p>
-
-            <div class="letter-content">
-                <p>
-                    My love,
-                </p>
-
-                <p>
-                    From the moment you came into my life, everything felt brighter, warmer,
-                    and more beautiful. You are the reason behind my smiles, my peace,
-                    and my happiness.
-                </p>
-
-                <p>
-                    Every day with you feels like a blessing. I cherish every laugh,
-                    every conversation, and every memory we create together.
-                </p>
-
-                <p>
-                    No matter what happens, I promise to stand by your side,
-                    support you, and love you endlessly.
-                </p>
-
-                <p>
-                    Forever yours, <br>
-                    <strong>Your Name ❤️</strong>
-                </p>
-            </div>
+            <div class="typewriter" id="text"></div>
         </div>
-
-        <a href="index.html" class="back-btn">⬅ Back Home</a>
     </div>
 
+    <a href="index.html" class="back-btn">⬅ Back Home</a>
+
+    <script src="letter.js"></script>
 </body>
 </html>
