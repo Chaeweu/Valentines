@@ -14,6 +14,7 @@ body {
     position: relative;
 }
 
+/* Sections */
 .section {
     display: none;
     height: 100%;
@@ -21,14 +22,18 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .section.active {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    opacity: 1;
 }
 
+/* Container */
 .container {
     background: rgba(255, 255, 255, 0.12);
     padding: 40px;
@@ -51,6 +56,7 @@ p {
     margin-bottom: 30px;
 }
 
+/* Buttons */
 button {
     background-color: white;
     color: #ff4e8a;
@@ -68,6 +74,7 @@ button:hover {
     transform: scale(1.08);
 }
 
+/* Floating Hearts */
 .heart {
     position: absolute;
     color: white;
@@ -81,6 +88,7 @@ button:hover {
     100% { transform: translateY(-900px) scale(1.6) rotate(360deg); opacity: 0; }
 }
 
+/* Hidden message */
 .hidden-message {
     margin-top: 20px;
     display: none;
@@ -88,6 +96,7 @@ button:hover {
     color: #fff;
 }
 
+/* Explosion Hearts */
 .explode-heart {
     position: fixed;
     font-size: 22px;
@@ -124,7 +133,6 @@ button:hover {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    animation: fadeIn 1.5s ease-in-out;
 }
 
 .letter-card h1 {
@@ -186,9 +194,4 @@ button:hover {
 
 .nav-buttons button:hover {
     background: #ffe6f0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }

@@ -9,7 +9,7 @@
 <body>
 
     <!-- Background Music -->
-    <audio id="bg-music" src="music/valentine-song.mp3" autoplay loop></audio>
+    <audio id="bg-music" src="music/Tanging Ikaw.mp3" autoplay loop></audio>
 
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
@@ -60,19 +60,18 @@
         </div>
     </section>
 
-    <!-- Floating Hearts Container -->
-    <div id="hearts-container"></div>
-
     <script>
+        // Sections for navigation
         const sections = document.querySelectorAll('.section');
 
-        // Show section function
+        // Show only one section
         function showSection(id) {
             sections.forEach(sec => sec.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            const selected = document.getElementById(id);
+            selected.classList.add('active');
         }
 
-        // ❤️ Floating Background Hearts
+        // Floating Background Hearts
         function createFloatingHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
@@ -85,7 +84,7 @@
         }
         setInterval(createFloatingHeart, 400);
 
-        // 💥 Explosion Hearts
+        // Explosion Hearts
         function explodeHearts() {
             const numberOfHearts = 40;
             for (let i = 0; i < numberOfHearts; i++) {
@@ -104,7 +103,7 @@
             document.body.classList.add("zoom-out");
         }
 
-        // Optional: Play music on load
+        // Music autoplay
         const bgMusic = document.getElementById("bg-music");
         window.addEventListener('load', () => {
             bgMusic.play().catch(() => {
