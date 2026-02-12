@@ -14,36 +14,20 @@ body {
     overflow: hidden;
     color: white;
     text-align: center;
-    position: relative;
 }
 
-/* Main Container */
 .container {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     padding: 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px rgba(255, 0, 120, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255, 0, 100, 0.4);
     max-width: 500px;
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-/* Smooth Fade In */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
 p {
@@ -51,33 +35,27 @@ p {
     margin-bottom: 30px;
 }
 
-/* Button */
 button {
     background-color: white;
     color: #ff4e8a;
     border: none;
     padding: 12px 25px;
     font-size: 1rem;
-    border-radius: 30px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
 }
 
 button:hover {
     background-color: #ffe6f0;
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
 }
 
-/* Floating Hearts Background */
 .heart {
     position: absolute;
     color: white;
     font-size: 20px;
-    animation: float 6s linear infinite;
-    opacity: 0.8;
+    animation: float 5s linear infinite;
 }
 
 @keyframes float {
@@ -86,24 +64,22 @@ button:hover {
         opacity: 1;
     }
     100% {
-        transform: translateY(-900px) scale(1.6) rotate(360deg);
+        transform: translateY(-800px) scale(1.5);
         opacity: 0;
     }
 }
 
-/* Hidden Message */
 .hidden-message {
     margin-top: 20px;
     display: none;
     font-size: 1.3rem;
     color: #fff;
-    animation: fadeIn 1s ease-in-out;
 }
 
-/* ❤️ Hearts Explosion */
+/* 💥 Hearts Explosion */
 .explode-heart {
     position: fixed;
-    font-size: 22px;
+    font-size: 20px;
     pointer-events: none;
     animation: explode 1s ease-out forwards;
 }
@@ -114,12 +90,12 @@ button:hover {
         opacity: 1;
     }
     100% {
-        transform: translate(var(--x), var(--y)) scale(1.8);
+        transform: translate(var(--x), var(--y)) scale(1.5);
         opacity: 0;
     }
 }
 
-/* Zoom Effect Before Redirect */
+/* Optional zoom effect */
 .zoom-out {
     animation: zoomScreen 0.8s ease forwards;
 }
@@ -127,22 +103,6 @@ button:hover {
 @keyframes zoomScreen {
     from { transform: scale(1); }
     to { transform: scale(1.1); }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 30px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
 }
 
 /* Gallery and Music CSS */
