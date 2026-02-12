@@ -5,10 +5,9 @@
     <title>Happy Valentine's Day ❤️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Link External CSS -->
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="container">
@@ -21,41 +20,59 @@
     </div>
 
     <script>
-function explodeHearts() {
+        // ❤️ Floating Background Hearts
+        function createFloatingHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
 
-    const numberOfHearts = 40;
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "-20px";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
 
-    for (let i = 0; i < numberOfHearts; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("explode-heart");
-        heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
 
-        // Start at center
-        heart.style.left = "50%";
-        heart.style.top = "50%";
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
 
-        // Random explosion direction
-        const x = (Math.random() - 0.5) * 600 + "px";
-        const y = (Math.random() - 0.5) * 600 + "px";
+        // Create floating hearts continuously
+        setInterval(createFloatingHeart, 400);
 
-        heart.style.setProperty("--x", x);
-        heart.style.setProperty("--y", y);
+        // 💥 Explosion Hearts + Redirect
+        function explodeHearts() {
+            const numberOfHearts = 40;
 
-        document.body.appendChild(heart);
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("explode-heart");
+                heart.innerHTML = "❤️";
 
-        setTimeout(() => {
-            heart.remove();
-        }, 1000);
-    }
+                heart.style.left = "50%";
+                heart.style.top = "50%";
 
-    // Optional zoom effect
-    document.body.classList.add("zoom-out");
+                const x = (Math.random() - 0.5) * 600 + "px";
+                const y = (Math.random() - 0.5) * 600 + "px";
 
-    // Redirect after animation
-    setTimeout(() => {
-        window.location.href = "gallery.html";
-    }, 900);
-}
+                heart.style.setProperty("--x", x);
+                heart.style.setProperty("--y", y);
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            }
+
+            // Zoom effect
+            document.body.classList.add("zoom-out");
+
+            // Redirect after 0.9s
+            setTimeout(() => {
+                window.location.href = "gallery.html";
+            }, 900);
+        }
     </script>
 
 </body>
