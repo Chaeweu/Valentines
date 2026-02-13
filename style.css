@@ -22,13 +22,10 @@ body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 .section.active {
     display: flex;
-    opacity: 1;
 }
 
 /* Container */
