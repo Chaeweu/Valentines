@@ -235,6 +235,7 @@ button:hover {
     z-index: 1000;
 }
 
+
 .popup-content {
     background: white;
     color: #ff4e8a;
@@ -242,6 +243,10 @@ button:hover {
     border-radius: 25px;
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+    display: flex;          /* flex layout */
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center horizontally */
 }
 
 .popup-buttons {
@@ -277,4 +282,12 @@ button:hover {
 
 #noBtn:hover {
     background: #aaa;
+}
+
+#yesImage {
+    display: none;
+    margin-top: 20px;
+    max-width: 200px;
+    width: 100%;           /* optional to make it responsive */
+    object-fit: contain;
 }
