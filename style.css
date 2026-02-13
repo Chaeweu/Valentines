@@ -10,9 +10,9 @@ body {
     height: 100vh;
     overflow: hidden;
     color: white;
-    text-align: center;
 }
 
+/* Sections */
 .section {
     display: none;
     position: absolute;
@@ -21,12 +21,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .section.active {
     display: flex;
 }
 
+/* Container */
 .container {
     background: rgba(255,255,255,0.15);
     padding: 40px;
@@ -50,37 +52,36 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Floating hearts */
+/* ================= HEART BACKGROUND ================= */
+
+#hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
 .heart {
     position: absolute;
-    animation: float 5s linear infinite;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
 }
 
-@keyframes float {
+@keyframes floatUp {
     from { transform: translateY(0); opacity:1; }
-    to { transform: translateY(-800px); opacity:0; }
-}
-
-/* Explosion */
-.explode-heart {
-    position: fixed;
-    font-size: 22px;
-    animation: explode 1s ease-out forwards;
-}
-
-@keyframes explode {
-    from { transform: translate(0,0); opacity:1; }
-    to { transform: translate(var(--x), var(--y)); opacity:0; }
+    to { transform: translateY(-110vh); opacity:0; }
 }
 
 /* ================= ENVELOPE ================= */
 
 .envelope {
-    width: 300px;
-    height: 200px;
+    width: 420px;
+    height: 260px;
     background: #fff;
     position: relative;
-    border-radius: 10px;
+    border-radius: 15px;
     perspective: 1000px;
 }
 
@@ -91,6 +92,7 @@ button:hover {
     background: #ff4e8a;
     transform-origin: top;
     transition: transform 1s ease;
+    border-radius: 15px;
     z-index: 2;
 }
 
@@ -98,29 +100,22 @@ button:hover {
     transform: rotateX(180deg);
 }
 
-/* PAPER SLIDE UP ANIMATION */
 .letter-paper {
     position: absolute;
-    width: 90%;
-    height: 80%;
+    width: 95%;
+    height: 180%;
     background: #fffafc;
     color: #444;
-    top: 60%;
-    left: 5%;
-    padding: 15px;
-    border-radius: 10px;
-    transform: translateY(0);
-    transition: transform 1.2s ease 1s;
-    overflow-y: auto;
+    top: 100%;
+    left: 2.5%;
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 1.5s ease 0.8s;
+    text-align: left;
 }
 
 .envelope.open .letter-paper {
-    transform: translateY(-80%);
-}
-
-#toGalleryBtn {
-    display: none;
-    margin-top: 40px;
+    transform: translateY(-85%);
 }
 
 /* ================= GALLERY ================= */
@@ -130,7 +125,7 @@ button:hover {
     gap: 25px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .polaroid {
@@ -141,11 +136,11 @@ button:hover {
 }
 
 .card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    position: relative;
 }
 
 .polaroid.flipped .card-inner {
@@ -175,6 +170,5 @@ button:hover {
     transform: rotateY(180deg);
     color: #ff4e8a;
     font-weight: bold;
-    font-size: 1rem;
     text-align: center;
 }
