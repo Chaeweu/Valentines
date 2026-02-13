@@ -1,16 +1,17 @@
 const sections = document.querySelectorAll('.section');
 
-/* Smooth section change with envelope animation */
+/* Smooth section change with envelope control */
 function showSection(id){
     const current = document.querySelector('.section.active');
     const next = document.getElementById(id);
 
     if(current === next) return;
 
+    const envelope = document.getElementById('envelope');
+
     // If leaving letter, close envelope first
     if(current.id === 'letter'){
-        const envelope = document.getElementById('envelope');
-        envelope.classList.remove('open'); // close flap
+        envelope.classList.remove('open'); // flap closes, letter-paper rises back
     }
 
     // fade out current
@@ -24,13 +25,13 @@ function showSection(id){
         // If returning to letter, open envelope after fade in
         if(next.id === 'letter'){
             setTimeout(()=>{
-                const envelope = document.getElementById('envelope');
                 envelope.classList.add('open');
-            }, 500); // give small delay after section fade
+            }, 300); // give small delay after section fade
         }
 
     }, 500); // match CSS transition duration
 }
+
 
 
 /* Floating hearts */
@@ -46,30 +47,30 @@ setInterval(()=>{
     setTimeout(()=> heart.remove(), 6000);
 }, 400);
 
-/* Explosion then auto flow */
+/* Explosion from Home */
 function explodeHearts(){
     const letterSection = document.getElementById("letter");
     const envelope = document.getElementById("envelope");
 
-    // Unhide letter section first but keep it transparent
+    // Show letter section with opacity 0 first
     letterSection.classList.add('active');
     letterSection.style.opacity = 0;
 
-    // Delay to allow section to "fade in"
+    // fade in letter section
     setTimeout(()=>{
         letterSection.style.opacity = 1;
 
-        // Open flap and pull letter-paper after section fade in
+        // Open envelope flap + pull letter-paper
         setTimeout(()=>{
             envelope.classList.add("open");
-        }, 300); // 0.3s after fade in
+        }, 300);
 
-    }, 100); // short delay before fade in
+    }, 100);
 
     // Show gallery button after envelope animation
     setTimeout(()=>{
         document.getElementById("toGalleryBtn").style.display = "inline-block";
-    }, 2000); // adjust timing based on envelope transition
+    }, 2000);
 }
 
 /* Flip polaroid */
