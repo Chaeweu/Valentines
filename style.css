@@ -160,10 +160,11 @@ button:hover {
     transition: transform 0.8s;
     transform-style: preserve-3d;
     position: relative;
+     transform: rotateY(180deg);
 }
 
 .polaroid.flipped .card-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
 }
 
 .card-front, .card-back {
