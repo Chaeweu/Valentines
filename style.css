@@ -163,7 +163,7 @@ button:hover {
 }
 
 .polaroid.flipped .card-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(240deg);
 }
 
 .card-front, .card-back {
