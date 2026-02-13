@@ -42,8 +42,6 @@ function flipCard(card){
 }
 
 /* Autoplay music */
-const bgMusic=document.getElementById("bg-music");
-
 const bgMusic = document.getElementById("bg-music");
 
 window.addEventListener('load', () => {
