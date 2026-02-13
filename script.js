@@ -1,10 +1,37 @@
 const sections = document.querySelectorAll('.section');
 
-/* Change section */
+/* Smooth section change with envelope animation */
 function showSection(id){
-    sections.forEach(sec=>sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    const current = document.querySelector('.section.active');
+    const next = document.getElementById(id);
+
+    if(current === next) return;
+
+    // If leaving letter, close envelope first
+    if(current.id === 'letter'){
+        const envelope = document.getElementById('envelope');
+        envelope.classList.remove('open'); // close flap
+    }
+
+    // fade out current
+    current.style.opacity = 0;
+
+    setTimeout(()=>{
+        current.classList.remove('active');
+        next.classList.add('active');
+        next.style.opacity = 1;
+
+        // If returning to letter, open envelope after fade in
+        if(next.id === 'letter'){
+            setTimeout(()=>{
+                const envelope = document.getElementById('envelope');
+                envelope.classList.add('open');
+            }, 500); // give small delay after section fade
+        }
+
+    }, 500); // match CSS transition duration
 }
+
 
 /* Floating hearts */
 const heartsContainer = document.getElementById("hearts-container");
