@@ -4,6 +4,12 @@ const sections = document.querySelectorAll('.section');
 function showSection(id){
     sections.forEach(sec=>sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    
+        // Animate ticket if going to RSVP section
+    if(id === 'rsvp'){
+        const ticket = document.querySelector('.ticket');
+        setTimeout(()=> ticket.classList.add('show'), 300);
+    }
 }
 
 /* Floating hearts */

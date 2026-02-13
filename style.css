@@ -200,3 +200,23 @@ button:hover {
     border-radius: 15px;
 }
 
+/* ================= ONLINE TICKET ================= */
+.ticket {
+    width: 80%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ff6eb4, #ff4e8a);
+    border-radius: 25px;
+    color: white;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.ticket.show {
+    opacity: 1;
+    transform: translateY(0);
+}
