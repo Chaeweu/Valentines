@@ -23,14 +23,12 @@ body {
     flex-direction: column;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease; /* smooth fade + slide */
-    transform: translateY(20px); /* start slightly down */
+    transition: opacity 0.5s ease; /* tanggalin ang transform dito */
 }
 
 .section.active {
     display: flex;
     opacity: 1;
-    transform: translateY(0); /* slide to normal position */
 }
 
 /* Container */

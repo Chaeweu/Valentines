@@ -5,18 +5,16 @@ function showSection(id){
     const current = document.querySelector('.section.active');
     const next = document.getElementById(id);
 
-    if(current === next) return; // kung same section, wag gawin
+    if(current === next) return;
 
-    // fade out current
+    // fade out current section
     current.style.opacity = 0;
-    current.style.transform = 'translateY(-20px)'; // optional slide up on fade out
 
     setTimeout(()=>{
         current.classList.remove('active');
         next.classList.add('active');
         next.style.opacity = 1;
-        next.style.transform = 'translateY(0)'; // slide in
-    }, 500); // match sa CSS transition duration
+    }, 500);
 }
 
 
