@@ -44,9 +44,12 @@ function flipCard(card){
 /* Autoplay music */
 const bgMusic=document.getElementById("bg-music");
 
-window.addEventListener('load',()=>{
-    bgMusic.muted=false;
-    bgMusic.play().catch(()=>{
-        document.body.addEventListener('click',()=>bgMusic.play());
+const bgMusic = document.getElementById("bg-music");
+
+window.addEventListener('load', () => {
+    bgMusic.volume = 0.2; // 0.0 = mute, 1.0 = max volume
+    bgMusic.muted = false;
+    bgMusic.play().catch(() => {
+        document.body.addEventListener('click', () => bgMusic.play());
     });
 });
