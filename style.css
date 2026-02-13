@@ -199,3 +199,46 @@ button:hover {
     object-fit: cover;
     border-radius: 15px;
 }
+
+/* ================= BOUQUET ================= */
+
+.bouquet-container {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    height: 500px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Rose style */
+.rose {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 50% 30%, #ff6eb4 0%, #ff4e8a 70%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    animation: sway 3s ease-in-out infinite alternate;
+}
+
+/* Spread roses out */
+.rose:nth-child(0) { left: 35%; animation-delay: 0s; }
+.rose:nth-child(1) { left: 40%; animation-delay: 0.2s; }
+.rose:nth-child(2) { left: 45%; animation-delay: 0.4s; }
+.rose:nth-child(3) { left: 50%; animation-delay: 0.1s; }
+.rose:nth-child(4) { left: 55%; animation-delay: 0.3s; }
+.rose:nth-child(5) { left: 60%; animation-delay: 0.5s; }
+.rose:nth-child(6) { left: 48%; animation-delay: 0.15s; }
+.rose:nth-child(7) { left: 52%; animation-delay: 0.25s; }
+.rose:nth-child(8) { left: 50%; animation-delay: 0.35s; }
+
+/* Gentle sway animation */
+@keyframes sway {
+    0% { transform: rotate(-5deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-5px); }
+    100% { transform: rotate(-5deg) translateY(0); }
+}
