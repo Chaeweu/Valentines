@@ -1,10 +1,24 @@
 const sections = document.querySelectorAll('.section');
 
-/* Change section */
+/* Smooth section change */
 function showSection(id){
-    sections.forEach(sec=>sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    const current = document.querySelector('.section.active');
+    const next = document.getElementById(id);
+
+    if(current === next) return; // kung same section, wag gawin
+
+    // fade out current
+    current.style.opacity = 0;
+    current.style.transform = 'translateY(-20px)'; // optional slide up on fade out
+
+    setTimeout(()=>{
+        current.classList.remove('active');
+        next.classList.add('active');
+        next.style.opacity = 1;
+        next.style.transform = 'translateY(0)'; // slide in
+    }, 500); // match sa CSS transition duration
 }
+
 
 /* Floating hearts */
 const heartsContainer = document.getElementById("hearts-container");
