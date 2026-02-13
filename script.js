@@ -4,7 +4,7 @@ const sections = document.querySelectorAll('.section');
 function showSection(id){
     sections.forEach(sec=>sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    
+
         // Animate ticket if going to RSVP section
     if(id === 'rsvp'){
         const ticket = document.querySelector('.ticket');
@@ -56,4 +56,38 @@ window.addEventListener('load', () => {
     bgMusic.play().catch(() => {
         document.body.addEventListener('click', () => bgMusic.play());
     });
+});
+
+// Valentine Popup Logic
+const valPopup = document.getElementById("valentine-popup");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const yesImage = document.getElementById("yesImage");
+
+// Show popup on load
+window.addEventListener('load', () => {
+    valPopup.style.display = 'flex';
+});
+
+// Yes button click
+yesBtn.addEventListener('click', () => {
+    yesImage.style.display = 'block';
+    setTimeout(() => {
+        valPopup.style.display = 'none';
+    }, 2000); // close after 2s showing image
+});
+
+// No button hover logic
+let hoverCount = 0;
+noBtn.addEventListener('mouseenter', () => {
+    hoverCount++;
+    if (hoverCount >= 5) {
+        noBtn.style.display = 'none';
+        return;
+    }
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
 });
