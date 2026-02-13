@@ -48,28 +48,19 @@ setInterval(()=>{
 
 /* Explosion then auto flow */
 function explodeHearts(){
-    const letterSection = document.getElementById("letter");
+    showSection("letter");
+
     const envelope = document.getElementById("envelope");
 
-    // Unhide letter section first but keep it transparent
-    letterSection.classList.add('active');
-    letterSection.style.opacity = 0;
-
-    // Delay to allow section to "fade in"
+    // Open flap first
     setTimeout(()=>{
-        letterSection.style.opacity = 1;
+        envelope.classList.add("open");
+    },500);
 
-        // Open flap and pull letter-paper after section fade in
-        setTimeout(()=>{
-            envelope.classList.add("open");
-        }, 300); // 0.3s after fade in
-
-    }, 100); // short delay before fade in
-
-    // Show gallery button after envelope animation
+    // Show gallery button after animation
     setTimeout(()=>{
-        document.getElementById("toGalleryBtn").style.display = "inline-block";
-    }, 2000); // adjust timing based on envelope transition
+        document.getElementById("toGalleryBtn").style.display="inline-block";
+    },3000);
 }
 
 /* Flip polaroid */
