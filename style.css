@@ -211,17 +211,9 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    transform: translateY(100px); /* start below screen */
-    opacity: 0; /* hidden initially */
-    transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
-/* Add class when bouquet appears */
-.bouquet-container.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-
+/* Rose style */
 .rose {
     position: absolute;
     bottom: 0;
@@ -230,12 +222,23 @@ button:hover {
     background: radial-gradient(circle at 50% 30%, #ff6eb4 0%, #ff4e8a 70%);
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     transform-origin: bottom center;
-    animation: sway 3s ease-in-out infinite alternate, bloom 1s ease forwards;
-    transform: scale(0.7); /* small at start */
+    animation: sway 3s ease-in-out infinite alternate;
 }
 
-/* Bloom animation */
-@keyframes bloom {
-    from { transform: scale(0.7); }
-    to { transform: scale(1); }
+/* Spread roses out */
+.rose:nth-child(0) { left: 35%; animation-delay: 0s; }
+.rose:nth-child(1) { left: 40%; animation-delay: 0.2s; }
+.rose:nth-child(2) { left: 45%; animation-delay: 0.4s; }
+.rose:nth-child(3) { left: 50%; animation-delay: 0.1s; }
+.rose:nth-child(4) { left: 55%; animation-delay: 0.3s; }
+.rose:nth-child(5) { left: 60%; animation-delay: 0.5s; }
+.rose:nth-child(6) { left: 48%; animation-delay: 0.15s; }
+.rose:nth-child(7) { left: 52%; animation-delay: 0.25s; }
+.rose:nth-child(8) { left: 50%; animation-delay: 0.35s; }
+
+/* Gentle sway animation */
+@keyframes sway {
+    0% { transform: rotate(-5deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-5px); }
+    100% { transform: rotate(-5deg) translateY(0); }
 }
