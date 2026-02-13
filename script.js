@@ -23,14 +23,17 @@ setInterval(()=>{
 function explodeHearts(){
     showSection("letter");
 
+    const envelope = document.getElementById("envelope");
+
+    // Open flap first
     setTimeout(()=>{
-        document.getElementById("envelope").classList.add("open");
+        envelope.classList.add("open");
     },500);
 
-    /* Auto go to gallery after letter opens */
+    // Show gallery button after animation
     setTimeout(()=>{
-        showSection("gallery");
-    },6000);
+        document.getElementById("toGalleryBtn").style.display="inline-block";
+    },3000);
 }
 
 /* Flip polaroid */

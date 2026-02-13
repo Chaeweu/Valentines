@@ -83,8 +83,10 @@ button:hover {
     position: relative;
     border-radius: 15px;
     perspective: 1000px;
+    overflow: hidden;
 }
 
+/* FRONT FLAP */
 .flap {
     position: absolute;
     width: 100%;
@@ -93,29 +95,32 @@ button:hover {
     transform-origin: top;
     transition: transform 1s ease;
     border-radius: 15px;
-    z-index: 2;
+    z-index: 5;
 }
 
+/* OPEN FLAP */
 .envelope.open .flap {
     transform: rotateX(180deg);
 }
 
+/* LETTER INSIDE */
 .letter-paper {
     position: absolute;
-    width: 95%;
-    height: 180%;
+    width: 92%;
     background: #fffafc;
     color: #444;
-    top: 100%;
-    left: 2.5%;
+    left: 4%;
+    bottom: -220px; /* fully hidden */
     padding: 30px;
     border-radius: 15px;
-    transition: transform 1.5s ease 0.8s;
     text-align: left;
+    transition: bottom 1.5s ease;
+    z-index: 2;
 }
 
+/* LETTER PULL OUT AFTER OPEN */
 .envelope.open .letter-paper {
-    transform: translateY(-85%);
+    bottom: 40px; /* slides upward */
 }
 
 /* ================= GALLERY ================= */
