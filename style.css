@@ -77,7 +77,7 @@ button:hover {
 /* ================= ENVELOPE ================= */
 .envelope {
     width: 550px;
-    height: 370px;   /* as requested */
+    height: 470px;  
     position: relative;
     background: #fff;
     border-radius: 15px;
