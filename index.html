@@ -8,115 +8,88 @@
 </head>
 <body>
 
-    <!-- Background Music (muted initially for autoplay) -->
-    <audio id="bg-music" src="music/Tanging Ikaw.mp3" loop autoplay muted></audio>
+<audio id="bg-music" src="music/Tanging Ikaw.mp3" loop autoplay muted></audio>
 
-    <!-- Navigation Buttons -->
-    <div class="nav-buttons">
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('letter')">Letter 💌</button>
-        <button onclick="showSection('gallery')">Gallery 📷</button>
+<!-- ================= HOME ================= -->
+<section id="home" class="section active">
+    <div class="container">
+        <h1>Happy Valentine's Day ❤️</h1>
+        <p>You make my world brighter every day.</p>
+        <button onclick="explodeHearts()">Click for a Surprise 💌</button>
+    </div>
+</section>
+
+<!-- ================= LETTER ================= -->
+<section id="letter" class="section">
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="letter-paper" id="letterPaper">
+            <h3>To My Princess 💕</h3>
+            <p>My Mahal,</p>
+            <p>You are my happiness, my peace, my everything.</p>
+            <p>I promise to love you endlessly.</p>
+            <p>Forever yours,<br><b>Kilbin ❤️</b></p>
+        </div>
     </div>
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="container">
-            <h1>Happy Valentine's Day ❤️</h1>
-            <p>You make my world brighter every single day.</p>
-            <button onclick="explodeHearts()">Click for a Surprise 💌</button>
-            <div class="hidden-message" id="message">
-                I love you more than words can express 💖
-            </div>
-        </div>
-    </section>
+    <button id="toGalleryBtn" onclick="showSection('gallery')">
+        Go to Gallery 📷
+    </button>
+</section>
 
-    <!-- Letter Section -->
-    <section id="letter" class="section">
-        <div class="letter-wrapper">
-            <div class="letter-card">
-                <h1>To My Princess 💕</h1>
-                <p class="date">February 14, 2026</p>
-                <div class="letter-content">
-                    <p>My Mahal,</p>
-                    <p>From the moment you came into my life, everything felt brighter, warmer, and more beautiful. You are the reason behind my smiles, my peace, and my happiness.</p>
-                    <p>Every day with you feels like a blessing. I cherish every laugh, every conversation, and every memory we create together.</p>
-                    <p>No matter what happens, I promise to stand by your side, support you, and love you endlessly.</p>
-                    <p>Forever yours, <br><strong>Kilbin ❤️</strong></p>
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="section">
+    <h1>Our Memories 📷</h1>
+
+    <div class="gallery">
+
+        <div class="polaroid" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/photo1.jpg">
+                </div>
+                <div class="card-back">
+                    You are my sunshine ☀️
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <div class="gallery-container">
-            <h1>Gallery 📷</h1>
-            <div class="gallery">
-                <img src="images/photo1.jpg" alt="Photo 1">
-                <img src="images/photo2.jpg" alt="Photo 2">
-                <img src="images/photo3.jpg" alt="Photo 3">
-                <img src="images/photo4.jpg" alt="Photo 4">
+        <div class="polaroid" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/photo2.jpg">
+                </div>
+                <div class="card-back">
+                    My favorite smile 💕
+                </div>
             </div>
         </div>
-    </section>
 
-    <script>
-        const sections = document.querySelectorAll('.section');
+        <div class="polaroid" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/photo3.jpg">
+                </div>
+                <div class="card-back">
+                    Forever my love ❤️
+                </div>
+            </div>
+        </div>
 
-        // Show only one section
-        function showSection(id) {
-            sections.forEach(sec => sec.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
+        <div class="polaroid" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/photo4.jpg">
+                </div>
+                <div class="card-back">
+                    Always and forever 💍
+                </div>
+            </div>
+        </div>
 
-        // Floating background hearts
-        function createFloatingHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.bottom = "-20px";
-            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 5000);
-        }
-        setInterval(createFloatingHeart, 400);
+    </div>
+</section>
 
-        // Explosion hearts + navigate to Letter
-        function explodeHearts() {
-            const numberOfHearts = 40;
-            for (let i = 0; i < numberOfHearts; i++) {
-                const heart = document.createElement("div");
-                heart.classList.add("explode-heart");
-                heart.innerHTML = "❤️";
-                heart.style.left = "50%";
-                heart.style.top = "50%";
-                const x = (Math.random() - 0.5) * 600 + "px";
-                const y = (Math.random() - 0.5) * 600 + "px";
-                heart.style.setProperty("--x", x);
-                heart.style.setProperty("--y", y);
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 1000);
-            }
-            document.body.classList.add("zoom-out");
-
-            // After zoom animation, navigate to Letter section
-            setTimeout(() => {
-                document.body.classList.remove("zoom-out"); // reset zoom
-                showSection('letter');
-            }, 800); // match zoom-out duration
-        }
-
-        // Background music autoplay without delay
-        const bgMusic = document.getElementById("bg-music");
-        window.addEventListener('load', () => {
-            bgMusic.muted = false; // unmute after load
-            bgMusic.play().catch(() => {
-                // If autoplay blocked, start on first click anywhere
-                document.body.addEventListener('click', () => bgMusic.play());
-            });
-        });
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
