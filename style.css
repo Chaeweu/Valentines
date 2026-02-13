@@ -76,8 +76,8 @@ button:hover {
 
 /* ================= ENVELOPE ================= */
 .envelope {
-    width: 500px;
-    height: 370px;
+    width: 550px;
+    height: 370px;   /* as requested */
     position: relative;
     background: #fff;
     border-radius: 15px;
@@ -117,16 +117,16 @@ button:hover {
 /* LETTER (START FULLY HIDDEN) */
 .letter-paper {
     position: absolute;
-    width: 95%;
-    left: 2.5%;
-    bottom: -380px;   /* mas malalim para kasya yung mas malaking paper */
+    width: 94%;
+    left: 3%;
+    bottom: -520px;   /* mas malalim para full hide */
     background: #fffafc;
-    padding: 40px;    /* mas malaking padding */
+    padding: 45px;
     border-radius: 18px;
     color: #444;
     text-align: left;
-    font-size: 1.1rem;   /* mas malaking text */
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.7;
     transition: bottom 1.5s ease;
     z-index: 2;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
@@ -134,7 +134,7 @@ button:hover {
 
 /* PULL OUT AFTER OPEN */
 .envelope.open .letter-paper {
-    bottom: 20px;  /* mas mataas ang labas */
+    bottom: 40px;  /* fully visible */
 }
 
 /* ================= GALLERY ================= */
