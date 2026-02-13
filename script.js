@@ -1,22 +1,10 @@
 const sections = document.querySelectorAll('.section');
 
-/* Smooth section change */
+/* Change section */
 function showSection(id){
-    const current = document.querySelector('.section.active');
-    const next = document.getElementById(id);
-
-    if(current === next) return;
-
-    // fade out current section
-    current.style.opacity = 0;
-
-    setTimeout(()=>{
-        current.classList.remove('active');
-        next.classList.add('active');
-        next.style.opacity = 1;
-    }, 500);
+    sections.forEach(sec=>sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
-
 
 /* Floating hearts */
 const heartsContainer = document.getElementById("hearts-container");
