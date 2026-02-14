@@ -7,8 +7,8 @@
 
 body {
     background: linear-gradient(135deg, #ff4e8a, #ff9ecf);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     color: white;
 }
 
@@ -290,4 +290,111 @@ button:hover {
     max-width: 200px;
     width: 100%;           /* optional to make it responsive */
     object-fit: contain;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    /* Sections */
+    .section {
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Container */
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    /* ================= ENVELOPE ================= */
+
+    .envelope {
+        width: 95%;
+        height: 420px;
+    }
+
+    .letter-paper {
+        font-size: 0.95rem;
+        padding: 20px;
+        bottom: -300px;
+    }
+
+    .envelope.open .letter-paper {
+        bottom: 10px;
+    }
+
+    /* ================= GALLERY ================= */
+
+    .gallery {
+        gap: 15px;
+    }
+
+    .polaroid {
+        width: 160px;
+        height: 220px;
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* ================= TICKET ================= */
+
+    .ticket {
+        width: 95%;
+        padding: 20px;
+    }
+
+    /* ================= POPUP ================= */
+
+    .popup-content {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .popup-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #yesImage {
+        max-width: 150px;
+    }
+}
+
+/* ================= SMALL MOBILE RESPONSIVE ================= */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .polaroid {
+        width: 140px;
+        height: 200px;
+    }
+
+    .envelope {
+        height: 380px;
+    }
+
+    .letter-paper {
+        font-size: 0.85rem;
+    }
 }
