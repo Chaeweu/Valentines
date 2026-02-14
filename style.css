@@ -119,17 +119,21 @@ button:hover {
     position: absolute;
     width: 95%;
     left: 2.5%;
-    bottom: -380px;   /* mas malalim para kasya yung mas malaking paper */
+    bottom: -380px;
+    max-height: 75%;              /* limit height */
     background: #fffafc;
-    padding: 40px;    /* mas malaking padding */
+    padding: 30px;
     border-radius: 18px;
     color: #444;
     text-align: left;
-    font-size: 1.1rem;   /* mas malaking text */
+    font-size: 1.1rem;
     line-height: 1.6;
     transition: bottom 1.5s ease;
     z-index: 2;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+    overflow-y: auto;             /* ENABLE SCROLL */
+    -webkit-overflow-scrolling: touch; /* smooth scroll iPhone */
 }
 
 /* PULL OUT AFTER OPEN */
@@ -331,6 +335,7 @@ button:hover {
         font-size: 0.95rem;
         padding: 20px;
         bottom: -300px;
+        max-height: 65%;   /* smaller on mobile */
     }
 
     .envelope.open .letter-paper {
