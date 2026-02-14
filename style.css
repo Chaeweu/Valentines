@@ -335,7 +335,7 @@ button:hover {
         font-size: 0.95rem;
         padding: 20px;
         bottom: -300px;
-        max-height: 65%;   /* smaller on mobile */
+        max-height: 95%;   /* smaller on mobile */
     }
 
     .envelope.open .letter-paper {
