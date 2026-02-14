@@ -342,6 +342,14 @@ button:hover {
         bottom: 10px;
     }
 
+    .letter-paper::-webkit-scrollbar {
+    width: 6px;
+}
+
+    .letter-paper::-webkit-scrollbar-thumb {
+        background: #ff4e8a;
+        border-radius: 10px;
+    }
     /* ================= GALLERY ================= */
 
     .gallery {
